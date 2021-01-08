@@ -1,11 +1,106 @@
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   background-color: #262A41;
   width: 100%;
   color: white;
   height: 100vh;
+  padding: 2px;
 }
+.dashboard-container{
+  width: 50%;
+}
+
+.dashboard{
+  width: calc(100% - 56px);
+  height: 100%;
+  margin: auto;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
 h1{
   font-weight: 200;
+
+}
+
+.welcome-message {
+  font-weight: 100;
+  opacity: 0.66;
+  letter-spacing: 0.23;
+  font-size: 18px;
+}
+
+.dashboard-search-bar {
+  background-color: #3C3F54;
+  width: 100%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin: 28px 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+}
+
+.dashboard-search-bar .search-icon {
+  margin-right: 12px;
+}
+
+.dashboard-search-bar input {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  font-size: 22px;
+  color: white;
+  font-weight: bold;
+  opacity: 0.7;
+}
+
+
+.users-control-header{
+  letter-spacing: -0.02px;
+  font-size: 22px;
+  opacity: 0.7;
+}
+
+
+.users-control-container{
+  display: flex;
+}
+
+.users-control-container > div{
+margin-right: 40px;
+}
+
+
+.users-control-container  .control-icon{
+  padding: 1rem 1.5rem;
+  border-radius: 28px;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.users-control-container p{
+  opacity: 0.7;
+  font-size: 16px;
+  font-weight: medium;
+  letter-spacing: -0.02px;
+}
+
+.users-control-container  #all-icon-container{
+  background-color: #F935A9;
+}
+
+.users-control-container  #male-icon-container{
+  background-color: #30BBB5;
+}
+
+.users-control-container  #female-icon-container{
+  background-color: #7946C1;
 }

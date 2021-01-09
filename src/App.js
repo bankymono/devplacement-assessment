@@ -1,11 +1,36 @@
+import axios from 'axios';
+import {useEffect, useState} from 'react'
 import './App.css';
 import {FiSearch} from 'react-icons/fi'
 import {IoIosPeople} from 'react-icons/io'
 import {BiMale} from 'react-icons/bi'
 import {FaFemale} from 'react-icons/fa'
-import UsersList from './components/UsersList/UsersList';
+import Users from './components/Users/Users';
+import Pagination from './components/Pagination/Pagination'
 
 function App() {
+  // declare states to manage list of users displayed
+  const [users, setUsers] = useState([]);
+  const [loading,setLoading] = useState(false);
+  const [currentPage,setCurrentPage] = useState(1);
+  const [usersPerPage] = useState(3);
+
+  useEffect(()=>{
+    const fetchUsers = async () => {
+      setLoading(true);
+      const res = await axios.get('https://jsonplaceholder.typicode.com/users');
+      setUsers(res.data);
+      setLoading(false);
+    }
+
+    fetchUsers();
+  },[]);
+
+  const indexOfLastUser = currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+
+
   return (
     <div className="App">
       <div className="dashboard-container">
@@ -30,7 +55,8 @@ function App() {
         </div>
       </div>
       </div>
-      <UsersList />
+      <Users users={currentUsers} loading={loading} />
+      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} usersPerPage ={usersPerPage} totalUsers={users.length} />
     </div>
   );
 }

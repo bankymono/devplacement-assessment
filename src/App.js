@@ -18,8 +18,9 @@ function App() {
   useEffect(()=>{
     const fetchUsers = async () => {
       setLoading(true);
-      const res = await axios.get('https://jsonplaceholder.typicode.com/users');
-      setUsers(res.data);
+      // const res = await axios.get('https://jsonplaceholder.typicode.com/users');
+      const res = await axios.get('https://randomuser.me/api/?results=10');
+      setUsers(res.data.results);
       setLoading(false);
     }
 
@@ -29,8 +30,6 @@ function App() {
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
-
-
   return (
     <div className="App">
       <div className="dashboard-container">
@@ -55,8 +54,12 @@ function App() {
         </div>
       </div>
       </div>
-      <Users users={currentUsers} loading={loading} />
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} usersPerPage ={usersPerPage} totalUsers={users.length} />
+      <Users 
+        users={currentUsers} 
+        loading={loading}
+        >
+        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} usersPerPage ={usersPerPage} totalUsers={users.length} />
+      </Users>
     </div>
   );
 }

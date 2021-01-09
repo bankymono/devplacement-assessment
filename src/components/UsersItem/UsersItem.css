@@ -1,0 +1,28 @@
+.users-list-item{
+    background-color: white;
+    padding: 15px;
+    margin: 18px auto;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: row;
+    box-shadow:  10px 10px 40px #0000000D;
+}
+
+/* .image-container{
+    position: relative;
+    width: 100%;
+    border-radius: 50%;
+    background-color: red;
+    flex:1;
+    display: flex;
+    justify-content: center;
+} */
+
+.users-list-item-image {
+    border-radius: 50%;
+    border: 8px solid #75D6D1;
+}
+
+.user-list-details{
+    flex: 3;
+}

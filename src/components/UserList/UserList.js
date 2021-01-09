@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import './UserList.css';
 
-const User = () => {
+const User = ({user}) => {
     return (
-        <div>
+        <div className="user-detail-container">
             single user
         </div>
     )

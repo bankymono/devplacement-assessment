@@ -10,8 +10,8 @@ const Pagination = ({currentPage,setCurrentPage,usersPerPage,totalUsers}) => {
     return (
         <div>
             <div>
-                <button disabled={currentPage == 1? true: false} onClick={()=> setCurrentPage(currentPage - 1)}>Previous</button>
-                <button disabled={currentPage == Math.ceil(totalUsers / usersPerPage)? true: false}onClick={()=> setCurrentPage(currentPage + 1)}>Next</button>
+                <button disabled={currentPage === 1? true: false} onClick={()=> setCurrentPage(currentPage - 1)}>Previous</button>
+                <button disabled={currentPage === Math.ceil(totalUsers / usersPerPage)? true: false}onClick={()=> setCurrentPage(currentPage + 1)}>Next</button>
             </div>
         </div>
     )

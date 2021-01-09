@@ -2,6 +2,16 @@
     background-color: #F7F7FF;
     border-radius: 28px;
     width: 50%;
-    padding: 28px;
+    padding: 10px 40px;
     color: black;
+}
+
+.users-heading{
+    color: #262A41;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.users-container .filter{
+    font-weight: thin;
 }

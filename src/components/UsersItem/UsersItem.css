@@ -8,21 +8,77 @@
     box-shadow:  10px 10px 40px #0000000D;
 }
 
-/* .image-container{
-    position: relative;
-    width: 100%;
-    border-radius: 50%;
-    background-color: red;
-    flex:1;
-    display: flex;
-    justify-content: center;
-} */
-
 .users-list-item-image {
     border-radius: 50%;
     border: 8px solid #75D6D1;
 }
 
-.user-list-details{
+.user-list-item-details{
     flex: 3;
+    font-size: 11px;
+    margin: 0 1.5rem;
+    color: #262A41;
+    /* display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-evenly; */
+}
+
+
+
+.user-list-item-details > div {
+    margin-bottom: 5px;
+}
+
+.user-fullname{
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.user-list-item-details .user-address{
+    font-style: italic;
+    font-weight: thin;
+    opacity: 0.69;
+}
+
+.user-list-item-details .user-email{
+    opacity: .52;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.user-list-item-details .message-icon{
+    font-size: .8rem;
+    display: block;
+    margin-right:5px;
+}
+
+.user-list-item-details .user-phone{
+    opacity: .52;   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-list-item-details .phone-icon{
+    font-size: .8rem;
+    display: block;
+    margin-right:5px;
+}
+
+.user-contact-details{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-list-item-next{
+    background: #30BBB5;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    border-radius: 13px;
+
+   box-shadow: 2px 15px 30px #30BBB574;
 }

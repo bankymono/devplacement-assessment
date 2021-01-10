@@ -10,12 +10,12 @@ const SearchBar = () => {
                 <input placeholder="Find in list" />
              </div>
 
-             <div className="search-bar-country">
+             <div className="search-bar-select-country">
                  <select>
                      <option>sample</option>
                  </select>
              </div>
-             <div>show country</div>
+             <div className="search-bar-country-checkbox"><input type="checkbox" /><p>show country</p></div>
         </div>
     )
 }

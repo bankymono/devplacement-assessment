@@ -1,21 +1,20 @@
 .search-bar-container{
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 .search-bar-search{
-    /* background-color: #d9dbda ; */
+    width: 50%;
     background-color: #d2d2d4;
     border-radius: 40px;
     display: flex;
+    height: 40px;
     flex-direction: row;
     align-items: center;
     padding: 5px 10px;
-    /* width: 300px; */
-    margin:  0 10px;
+    margin:  0 10px 0 0;
     font-size: 11px;
     font-weight: normal;
-    /* color: black; */
-    /* opacity: 0.11; */
 }
 
 
@@ -31,7 +30,6 @@
     background-color: inherit;
     border: none;
     outline: none;
-    font-size: 22px;
     color: #262A41;
     font-weight: bold;
     opacity: .52;
@@ -41,24 +39,66 @@
     opacity: 1;
     color: #262A41;
     opacity: .52;
-    font-size: 18px;
+    font-size: 11px;
 }
 
-.search-bar-country{
+.search-bar-select-country{
     background-color: #d2d2d4;
     border-radius: 40px;
-    padding: 5px 5px;
-    /* height: 40px; */
+    padding: 0 5px;
+    height: 40px;
     margin-right: 10px;
 }
 
-.search-bar-country select{
+.search-bar-select-country select{
     background:none;
     padding: 10px;
-    /* outline: none; */
+    outline: none;
     border: none;
-    font-size: 18px;
     color: #262A41;
-    font-weight: bold;
     opacity: .52;
+    font-size: 12px;
+}
+
+.search-bar-container input[type="checkbox"]{
+    position: relative;
+    width: 50px;
+    height: 25px;
+    appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    transition: 0.5s;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+.search-bar-container input:checked[type="checkbox"]{
+    background: #30BBB5;
+}
+
+.search-bar-container input[type="checkbox"]::before{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    transform: scale(0.8);
+    background: #fff;    
+    transition: 0.5s;
+}
+
+.search-bar-container input:checked[type="checkbox"]::before{
+    left: 25px;
+}
+
+.search-bar-country-checkbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.search-bar-country-checkbox p{
+    font-size: 12px;
 }

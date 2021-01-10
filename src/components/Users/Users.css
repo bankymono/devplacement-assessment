@@ -14,4 +14,6 @@
 
 .users-container .filter{
     font-weight: thin;
+    font-size: 15px;
+    opacity: .7;
 }

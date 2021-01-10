@@ -21,6 +21,7 @@ function App() {
       // const res = await axios.get('https://jsonplaceholder.typicode.com/users');
       const res = await axios.get('https://randomuser.me/api/?results=10');
       setUsers(res.data.results);
+      console.log(res.data.results)
       setLoading(false);
     }
 

@@ -21,7 +21,7 @@ const UsersItem = ({user}) => {
                     <div className="user-email"><AiOutlineMail className="message-icon"/><p>{user.email}</p></div>
                     <div className="user-phone"><FiPhoneCall className="phone-icon" /><p>{user.cell}</p></div>
                     <div className="user-list-item-next">
-                        <NavLink to={'/' + user.id.value}><GrFormNextLink className="next-icon"/></NavLink>
+                        <NavLink to={'/' + user.email}><GrFormNextLink className="next-icon"/></NavLink>
                     </div>
                 </div>
             </div>

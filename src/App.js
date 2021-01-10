@@ -3,8 +3,9 @@ import {useState, useEffect, createContext} from 'react'
 import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import Users from './components/Users/Users';
-import UserList from './components/UserList/UserDetail';
+import UserList from './components/UserDetail/UserDetail';
 import Dashboard from './components/Dashboard/Dashboard';
+import SearchBar from './components/SearchBar/SearchBar';
 
 export const UsersContext = createContext()
 
@@ -18,7 +19,7 @@ function App() {
     const fetchUsers = async () => {
       setLoading(true);
       // const res = await axios.get('https://jsonplaceholder.typicode.com/users');
-      const res = await axios.get('https://randomuser.me/api/?results=10&inc=name,email,id,picture,location,cell,phone');
+      const res = await axios.get('https://randomuser.me/api/?results=10');
       setUsers(res.data.results);
 
       setLoading(false);
@@ -33,10 +34,16 @@ function App() {
     <div className="App">
       <UsersContext.Provider value = {{users,loading,currentPage,usersPerPage,setCurrentPage}}>
         <Dashboard />
+        <div className="users-container">
+        <h1 className="users-heading">All Users</h1>
+        <p className="filter">Filter by</p>
+            
+        <SearchBar />
         <Switch>
           <Route exact path="/" component={Users} />
           <Route exact path="/:userid" component={UserList} />
         </Switch>
+        </div>
         </UsersContext.Provider>
     </div>
   );

@@ -1,0 +1,115 @@
+.user-detail-container{
+    width: 100%;
+
+}
+.users-detail-item{
+    padding: 15px;
+    margin: 18px auto;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: row;
+
+}
+.user-detail-container .return-button {
+    /* background-color: #FCFCFF; */
+    border: none;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+.return-button .anchor{
+    text-decoration: none;
+    background: inherit;
+    color: #262A41;
+}
+
+.anchor .return-icon {
+    color: #75D6D1;
+    font-size: 1.5rem;
+}
+
+.users-detail-image {
+    border-radius: 50%;
+    border: 4px solid #75D6D1;
+    width: 8rem;
+    height: 8rem;
+}
+
+.user-detail-details{
+    flex: 3;
+    font-size: 12px;
+    margin: 0 1.5rem;
+    color: #262A41;
+    /* /* display: flex; 
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-evenly; */
+}
+
+.user-detail-details > div {
+    margin-bottom: 5px;
+}
+
+.user-detail-fullname{
+    font-weight: bold;
+    font-size: 1.2rem;
+
+}
+.user-detail-fullname span{    
+    font-weight:100;
+}
+
+.user-detail-contact-details{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    position: relative;
+}
+
+.user-detail-details .user-detail-address{
+    font-weight: thin;
+    opacity: 0.69;
+}
+
+.user-detail-details .user-detail-email{
+    opacity: .52;
+    display: flex;
+    flex-direction: row;
+    border-radius: 42px;
+    align-items: center;
+    padding: 0 5px;
+    margin: 10px 0;
+    background-color: #d2d2d4;
+    width: 70%;
+}
+
+.user-detail-details .user-detail-registered{
+    display: flex;
+    flex-direction: row;
+    border-radius: 42px;
+    align-items: center;
+    padding: 0 20px;
+    margin: 10px 0;
+    background-color: #f7cbe5;
+    width: 50%;
+}
+
+.user-detail-details .message-icon{
+    font-size: .8rem;
+    display: block;
+    margin: 0 12px;
+}
+
+.user-detail-details .user-detail-phone{
+    opacity: .52;   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-detail-details .phone-icon, .mobile-icon{
+    font-size: .8rem;
+    display: block;
+    margin-right:5px;
+}
+

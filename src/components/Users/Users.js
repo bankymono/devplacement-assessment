@@ -19,17 +19,17 @@ const Users = () => {
     }
 
     return (
-        <div className="users-container">
-            <h1 className="users-heading">All Users</h1>
-            <p className="filter">Filter by</p>
-            <SearchBar />
+        
+            <>
+         
             <div className="users-list-container">
-                {currentUsers.map( user => <UsersItem key={user.id.value} user={user} />)}
+                {currentUsers.map( user => <UsersItem key={user.email} user={user} />)}
             </div>
 
             {/* {props.children}        */}
             <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} usersPerPage ={usersPerPage} totalUsers={users.length} />
-        </div>
+        
+        </>
     )
 }
 

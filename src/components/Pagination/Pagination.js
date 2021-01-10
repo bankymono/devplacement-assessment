@@ -1,3 +1,4 @@
+import {IoCloudDownloadSharp}  from 'react-icons/io5'
 import React from 'react'
 import './Pagination.css'
 
@@ -13,8 +14,11 @@ const Pagination = ({currentPage,setCurrentPage,usersPerPage,totalUsers}) => {
     return (
         <div>
             <div className="pagination-container">
-                <button className="left" disabled={currentPage === 1? true: false} onClick={()=> setCurrentPage(currentPage - 1)}><BiChevronLeft size="1.2rem" color="#262A41"/></button>
-                <button className="right" disabled={currentPage === Math.ceil(totalUsers / usersPerPage)? true: false}onClick={()=> setCurrentPage(currentPage + 1)}><BiChevronRight size="1.2rem" color="#E2E2EA" /></button>
+                <div className="download-link"><IoCloudDownloadSharp />Download Results</div>
+                <div>
+                    <button className="left" disabled={currentPage === 1? true: false} onClick={()=> setCurrentPage(currentPage - 1)}><BiChevronLeft size="1.2rem" color="#262A41"/></button>
+                    <button className="right" disabled={currentPage === Math.ceil(totalUsers / usersPerPage)? true: false}onClick={()=> setCurrentPage(currentPage + 1)}><BiChevronRight size="1.2rem" color="#E2E2EA" /></button>
+                </div>
             </div>
         </div>
     )

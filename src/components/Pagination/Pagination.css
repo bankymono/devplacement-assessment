@@ -1,3 +1,17 @@
+.pagination-container {
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination-container .download-link{
+    background-color: #7946C1;
+    color: white;
+    padding: 5px;
+    border-radius: 40px;
+}
+
 .pagination-container button{
     border: none;
     border-radius: 5px;

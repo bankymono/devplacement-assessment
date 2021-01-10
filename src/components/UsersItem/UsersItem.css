@@ -10,7 +10,10 @@
 
 .users-list-item-image {
     border-radius: 50%;
-    border: 8px solid #75D6D1;
+    width: 5rem;
+    height: 5rem;
+    border: 4px solid #75D6D1;
+    object-fit: cover;
 }
 
 .user-list-item-details{

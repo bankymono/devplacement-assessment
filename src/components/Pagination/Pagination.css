@@ -1,0 +1,15 @@
+.pagination-container button{
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    width: 2rem;
+    height: 2rem;
+}
+
+.pagination-container .right{
+    background-color: #262A41;
+}
+
+.pagination-container .left{
+    background-color: #E2E2EA;
+}

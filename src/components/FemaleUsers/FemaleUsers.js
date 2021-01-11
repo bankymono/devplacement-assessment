@@ -13,7 +13,7 @@ const FemaleUsers = () => {
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = femaleUsers.slice(indexOfFirstUser, indexOfLastUser);
-//   console.log('female', currentUsers)
+
 
     if(loading){
         return <h1 className="users-container">loading...</h1>

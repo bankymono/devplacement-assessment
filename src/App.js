@@ -13,6 +13,8 @@ export const UsersContext = createContext()
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [searchParam, setSearchParam] = useState('');
   const [loading,setLoading] = useState(false);
   const [currentPage,setCurrentPage] = useState(1);
   const [usersPerPage] = useState(3);
@@ -33,13 +35,17 @@ function App() {
   
   return (
     <div className="App">
-      <UsersContext.Provider value = {{users,loading,currentPage,usersPerPage,setCurrentPage}}>
+      <UsersContext.Provider value = {{users,filteredUsers, loading,currentPage,usersPerPage,setCurrentPage}}>
         <Dashboard />
         <div className="users-container">
         <h1 className="users-heading">All Users</h1>
         <p className="filter">Filter by</p>
             
-        <SearchBar />
+        <SearchBar 
+              searchParam={searchParam} 
+              setSearchParam={setSearchParam} 
+              filteredUsers = {filteredUsers} 
+              setFilteredUsers={setFilteredUsers} />
         <Switch>
           <Route exact path="/" component={Users} />
           <Route exact path="/maleusers" component={MaleUsers} />

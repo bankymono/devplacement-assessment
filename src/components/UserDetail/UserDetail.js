@@ -15,7 +15,7 @@ const User = (props) => {
 
     const { match:{ params: {userid}}} = props
 
-    console.log('what is this', userid)
+
 
     return (
         <div className="user-detail-container">

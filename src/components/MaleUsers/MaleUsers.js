@@ -1,4 +1,3 @@
-
 import UsersItem from '../UsersItem/UsersItem'
 // import SearchBar from '../SearchBar/SearchBar'
 import './MaleUsers.css'
@@ -13,7 +12,7 @@ const MaleUsers = () => {
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = femaleUsers.slice(indexOfFirstUser, indexOfLastUser);
-//   console.log('female', currentUsers)
+
 
     if(loading){
         return <h1 className="users-container">loading...</h1>
@@ -27,7 +26,7 @@ const MaleUsers = () => {
                 {currentUsers.map( user => <UsersItem key={user.email} user={user} />)}
             </div>
 
-            {/* {props.children}        */}
+
             <Pagination currentUsers ={currentUsers} currentPage={currentPage} setCurrentPage={setCurrentPage} usersPerPage ={usersPerPage} totalUsers={users.length} />
         
         </>

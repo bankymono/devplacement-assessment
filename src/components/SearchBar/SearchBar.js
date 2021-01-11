@@ -1,14 +1,18 @@
-import React,{useState} from 'react'
-import {FiSearch} from 'react-icons/fi'
+import React,{useContext} from 'react';
+import {FiSearch} from 'react-icons/fi';
+import {UsersContext} from '../../App';
+
 import './SearchBar.css'
 
-const SearchBar = () => {
+const SearchBar = ({searchParam, setSearchParam, filteredUsers,setFilteredUsers}) => {
+    const {users} = useContext(UsersContext)
+    
+    const handleChange = (e)=>{
+        setSearchParam(e.target.value);
+        
+        const filtered =(e.target.value !== ''? users.filter(user => user.gender.toLowerCase().includes(searchParam.toLowerCase())):[])
 
-    const [value, setValue] = useState('')
-
-    const handleChange = (e) =>{
-        setValue(e.target.value)
-        console.log(value)
+        setFilteredUsers(filtered);
     }
 
     return (

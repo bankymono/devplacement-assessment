@@ -17,7 +17,6 @@ const Pagination = ({currentUsers, currentPage,setCurrentPage,usersPerPage,total
         const headers = Object.keys(users[0]);
         console.log(headers)
         csvRows.push(headers.join(','));
-        console.log('ha fa',csvRows)
 
         for(const row of users){
             const values = headers.map(header =>{
@@ -53,7 +52,7 @@ const Pagination = ({currentUsers, currentPage,setCurrentPage,usersPerPage,total
         const csvData = objectToCsv(data)
         downloadCsv(csvData)
     }
-    console.log(currentUsers)
+
     return (
         <div>
             <div className="pagination-container">

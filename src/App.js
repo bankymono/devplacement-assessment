@@ -6,6 +6,8 @@ import Users from './components/Users/Users';
 import UserList from './components/UserDetail/UserDetail';
 import Dashboard from './components/Dashboard/Dashboard';
 import SearchBar from './components/SearchBar/SearchBar';
+import MaleUsers from './components/MaleUsers/MaleUsers';
+import FemaleUsers from './components/FemaleUsers/FemaleUsers';
 
 export const UsersContext = createContext()
 
@@ -19,7 +21,7 @@ function App() {
     const fetchUsers = async () => {
       setLoading(true);
       // const res = await axios.get('https://jsonplaceholder.typicode.com/users');
-      const res = await axios.get('https://randomuser.me/api/?results=10&noinfo');
+      const res = await axios.get('https://randomuser.me/api/?results=40&noinfo');
       setUsers(res.data.results);
       
       setLoading(false);
@@ -40,6 +42,8 @@ function App() {
         <SearchBar />
         <Switch>
           <Route exact path="/" component={Users} />
+          <Route exact path="/maleusers" component={MaleUsers} />
+          <Route exact path="/femaleusers" component={FemaleUsers} />
           <Route exact path="/:userid" component={UserList} />
         </Switch>
         </div>

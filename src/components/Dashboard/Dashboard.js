@@ -23,10 +23,10 @@ const Dashboard = () => {
             <NavLink to="/"><div className="control-icon" id="all-icon-container"><IoIosPeople color="white" /></div></NavLink><p>All users</p>
           </div>
           <div>
-            <div className="control-icon" id="male-icon-container"><BiMale /></div><p>Male users</p>
+          <NavLink to="/maleusers"><div className="control-icon" id="male-icon-container"><BiMale color="white"/></div></NavLink><p>Male users</p>
           </div>
           <div>
-            <div className="control-icon" id="female-icon-container"><FaFemale /></div><p>Female users</p>
+          <NavLink to="/femaleusers"><div className="control-icon" id="female-icon-container"><FaFemale color="white"/></div></NavLink><p>Female users</p>
           </div>
         </div>
       </div>

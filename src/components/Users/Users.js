@@ -1,6 +1,6 @@
 
 import UsersItem from '../UsersItem/UsersItem'
-import SearchBar from '../SearchBar/SearchBar'
+// import SearchBar from '../SearchBar/SearchBar'
 import './Users.css'
 import {useContext} from 'react'
 import Pagination from '../Pagination/Pagination'
@@ -27,7 +27,7 @@ const Users = () => {
             </div>
 
             {/* {props.children}        */}
-            <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} usersPerPage ={usersPerPage} totalUsers={users.length} />
+            <Pagination currentUsers ={currentUsers} currentPage={currentPage} setCurrentPage={setCurrentPage} usersPerPage ={usersPerPage} totalUsers={users.length} />
         
         </>
     )

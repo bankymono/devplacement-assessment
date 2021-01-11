@@ -19,12 +19,11 @@ function App() {
     const fetchUsers = async () => {
       setLoading(true);
       // const res = await axios.get('https://jsonplaceholder.typicode.com/users');
-      const res = await axios.get('https://randomuser.me/api/?results=10');
+      const res = await axios.get('https://randomuser.me/api/?results=10&noinfo');
       setUsers(res.data.results);
-
-      setLoading(false);
-      localStorage.setItem('users', JSON.stringify(res.data.results))
       
+      setLoading(false);
+       
     }
 
     fetchUsers();

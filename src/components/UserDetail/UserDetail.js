@@ -6,6 +6,7 @@ import {AiOutlineMail} from 'react-icons/ai'
 import {FiPhoneCall} from 'react-icons/fi'
 import {ImMobile} from 'react-icons/im'
 import './UserDetail.css';
+import Pagination from '../Pagination/Pagination';
 
 
 const User = (props) => {
@@ -37,6 +38,7 @@ const User = (props) => {
                         </div>
                     </div>
                 </div>
+                <Pagination currentPage={null} setCurrentPage={null} usersPerPage ={null} totalUsers={null} />
                 </div>
                 :null)}
         </div>

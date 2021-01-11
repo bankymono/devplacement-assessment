@@ -1,15 +1,24 @@
 .pagination-container {
-    /* background-color: red; */
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .pagination-container .download-link{
+    position: fixed;
     background-color: #7946C1;
     color: white;
+    bottom: 40px;
     padding: 5px;
     border-radius: 40px;
+    cursor: pointer;
+}
+
+.pagination-container .pagination-button-container{
+    bottom: 40px;
+    right: 40px;
+    position: fixed;
 }
 
 .pagination-container button{

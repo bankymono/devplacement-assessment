@@ -1,37 +1,52 @@
-import React from 'react'
+import React,{useContext}from 'react'
 import {FiSearch} from 'react-icons/fi'
 import {IoIosPeople} from 'react-icons/io'
 import {BiMale} from 'react-icons/bi'
 import {FaFemale} from 'react-icons/fa'
 import {NavLink} from 'react-router-dom'
+import {UsersContext} from '../../App'
 import './Dashboard.css'
 
 
-const Dashboard = () => {
-    return (
-<div className="dashboard-container">
-      <div className="dashboard">
-        <h1>Hello, <b>Emerald</b></h1>
-        <p className="welcome-message">Welcome to your dashboard, kindly sort through the user base</p>
-        <div className="dashboard-search-bar">
-          <FiSearch className="search-icon"/>
-          <input placeholder="Find a user" />
-        </div>
-        <p className="users-control-header">Show Users</p>
-        <div className="users-control-container">
-          <div>
-            <NavLink to="/"><div className="control-icon" id="all-icon-container"><IoIosPeople color="white" /></div></NavLink><p>All users</p>
-          </div>
-          <div>
-          <NavLink to="/maleusers"><div className="control-icon" id="male-icon-container"><BiMale color="white"/></div></NavLink><p>Male users</p>
-          </div>
-          <div>
-          <NavLink to="/femaleusers"><div className="control-icon" id="female-icon-container"><FaFemale color="white"/></div></NavLink><p>Female users</p>
-          </div>
-        </div>
-      </div>
-      </div>
+const Dashboard = ({setFilteredUsers}) => {
+  const {users} = useContext(UsersContext)
+  
+  const handleChange = (e) =>{
+    
 
+    let filtered = (e.target.value === '' ?['null'] : users.filter(user => {
+      let userFullName = `${user.name.first} ${user.name.last}`;              
+      return userFullName.toLowerCase().includes(e.target.value.toLowerCase())
+    })) 
+
+    if(filtered.length === 0) filtered = ['null']
+    if(e.target.value === '') filtered = []
+
+  setFilteredUsers(filtered);
+  }
+    return (
+      <div className="dashboard-container">
+            <div className="dashboard">
+              <h1>Hello, <b>Emerald</b></h1>
+              <p className="welcome-message">Welcome to your dashboard, kindly sort through the user base</p>
+              <div className="dashboard-search-bar">
+                <FiSearch className="search-icon"/>
+                <input onChange ={handleChange} placeholder="Find a user" />
+              </div>
+              <p className="users-control-header">Show Users</p>
+              <div className="users-control-container">
+                <div>
+                  <NavLink to="/"><div className="control-icon" id="all-icon-container"><IoIosPeople color="white" /></div></NavLink><p>All users</p>
+                </div>
+                <div>
+                <NavLink to="/maleusers"><div className="control-icon" id="male-icon-container"><BiMale color="white"/></div></NavLink><p>Male users</p>
+                </div>
+                <div>
+                <NavLink to="/femaleusers"><div className="control-icon" id="female-icon-container"><FaFemale color="white"/></div></NavLink><p>Female users</p>
+                </div>
+              </div>
+            </div>
+            </div>
     )
 }
 

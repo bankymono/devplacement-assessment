@@ -4,12 +4,12 @@ import {UsersContext} from '../../App';
 
 import './SearchBar.css'
 
-const SearchBar = ({sieve, setSieve, searchParam, setSearchParam, filteredUsers,setFilteredUsers}) => {
+const SearchBar = ({sieve, setSieve, setFilteredUsers}) => {
 
     const {users} = useContext(UsersContext)
     // let sieves = 'country';
     const handleChange = (e)=>{
-        // console.log(sieves)
+        
         let filtered = [];
         if( sieve === 'country'){
              filtered = (e.target.value === '' ?['null'] : users.filter(user => {
@@ -40,15 +40,11 @@ const SearchBar = ({sieve, setSieve, searchParam, setSearchParam, filteredUsers,
             if(filtered.length === 0) filtered = ['null']
             if(e.target.value === '') filtered = []
         }
-        // const filtered =(e.target.value !== ''? users.filter(user => {
-        //         const fullname =  user.name.first + user.name.first 
-                
-        //         return fullname.toLowerCase().includes(searchParam.toLowerCase())
-        //                                                     }):[])
 
         setFilteredUsers(filtered);
     // }
     }
+
     const handleSelect = (e)=>{
         // sieves = e.target.value;
         // console.log('ase',sieves)

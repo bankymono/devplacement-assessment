@@ -8,12 +8,21 @@ import {UsersContext} from '../../App'
 
 
 const FemaleUsers = () => {
-  const {users,currentPage,usersPerPage,loading,setCurrentPage} = useContext(UsersContext)
+  const {users, filteredUsers, currentPage,usersPerPage,loading,setCurrentPage} = useContext(UsersContext)
   const femaleUsers = users.filter(user => user.gender === "female")
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
-  const currentUsers = femaleUsers.slice(indexOfFirstUser, indexOfLastUser);
 
+    let currentUsers = []
+
+    if(filteredUsers.length === 0){
+        currentUsers = femaleUsers.slice(indexOfFirstUser, indexOfLastUser)       
+    }
+    else if( filteredUsers[0] === 'null'){
+        currentUsers = []
+    } else {
+        currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser)
+    }
 
     if(loading){
         return <h1 className="users-container">loading...</h1>

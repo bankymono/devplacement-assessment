@@ -7,13 +7,19 @@ import {UsersContext} from '../../App'
 
 
 const MaleUsers = () => {
-  const {users,currentPage,usersPerPage,loading,setCurrentPage} = useContext(UsersContext)
-  const femaleUsers = users.filter(user => user.gender === "male")
+  const {users,filteredUsers, currentPage,usersPerPage,loading,setCurrentPage} = useContext(UsersContext)
+  const maleUsers = users.filter(user => user.gender === "male")
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
-  const currentUsers = femaleUsers.slice(indexOfFirstUser, indexOfLastUser);
-
-
+    let currentUsers = []
+        if(filteredUsers.length === 0){
+            currentUsers = maleUsers.slice(indexOfFirstUser, indexOfLastUser)       
+        }
+        else if( filteredUsers[0] === 'null'){
+            currentUsers = []
+        } else {
+            currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser)
+        }
     if(loading){
         return <h1 className="users-container">loading...</h1>
     }
@@ -21,7 +27,6 @@ const MaleUsers = () => {
     return (
         
             <>
-         
             <div className="users-list-container">
                 
                 {currentUsers.map( user => <UsersItem key={user.email} user={user} />)}

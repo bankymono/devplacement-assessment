@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <UsersContext.Provider value = {{users,filteredUsers, loading,currentPage,usersPerPage,setCurrentPage}}>
-        <Dashboard />
+        <Dashboard setFilteredUsers={setFilteredUsers}/>
         <div className="users-container">
         <h1 className="users-heading">All Users</h1>
         <p className="filter">Filter by</p>

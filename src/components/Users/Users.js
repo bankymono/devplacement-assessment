@@ -12,10 +12,16 @@ const Users = () => {
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   
-  const currentUsers = (filteredUsers.length  !== 0
-        ? filteredUsers.slice(indexOfFirstUser, indexOfLastUser)
-        : users.slice(indexOfFirstUser, indexOfLastUser));
+  let currentUsers=[];
 
+        if(filteredUsers.length === 0){
+            currentUsers = users.slice(indexOfFirstUser, indexOfLastUser)       
+        }
+        else if( filteredUsers[0] === 'null'){
+            currentUsers = []
+        } else {
+            currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser)
+        }
     if(loading){
         return <h1 className="users-container">loading...</h1>
     }
@@ -24,6 +30,7 @@ const Users = () => {
         
             <>
             <div className="users-list-container">
+                {console.log(currentUsers)}
                 {currentUsers.map( user => <UsersItem key={user.email} user={user} />)}
             </div>
 

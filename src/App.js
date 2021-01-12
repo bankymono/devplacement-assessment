@@ -14,6 +14,7 @@ export const UsersContext = createContext()
 function App() {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
+  const [sieve, setSieve] = useState('country');
   const [searchParam, setSearchParam] = useState('');
   const [loading,setLoading] = useState(false);
   const [currentPage,setCurrentPage] = useState(1);
@@ -45,6 +46,8 @@ function App() {
               searchParam={searchParam} 
               setSearchParam={setSearchParam} 
               filteredUsers = {filteredUsers} 
+              sieve = {sieve} 
+              setSieve = {setSieve} 
               setFilteredUsers={setFilteredUsers} />
         <Switch>
           <Route exact path="/" component={Users} />

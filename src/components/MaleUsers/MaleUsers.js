@@ -23,6 +23,7 @@ const MaleUsers = () => {
             <>
          
             <div className="users-list-container">
+                
                 {currentUsers.map( user => <UsersItem key={user.email} user={user} />)}
             </div>
 

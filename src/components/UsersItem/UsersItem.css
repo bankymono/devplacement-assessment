@@ -27,7 +27,12 @@
     justify-content: space-evenly; */
 }
 
-
+.user-country {
+    display: inline;
+    background-color: #f7cbe5;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
 
 .user-list-item-details > div {
     margin-bottom: 5px;

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {useState, useEffect, createContext} from 'react'
+import {useState, useEffect, createContext, useRef} from 'react'
 import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import Users from './components/Users/Users';
@@ -15,10 +15,13 @@ function App() {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [sieve, setSieve] = useState('country');
-  const [searchParam, setSearchParam] = useState('');
+  const [showCountry, setShowCountry] = useState(false);
   const [loading,setLoading] = useState(false);
   const [currentPage,setCurrentPage] = useState(1);
   const [usersPerPage] = useState(3);
+
+  const divRef = useRef(null)
+
 
   useEffect(()=>{
     const fetchUsers = async () => {
@@ -36,15 +39,14 @@ function App() {
   
   return (
     <div className="App">
-      <UsersContext.Provider value = {{users,filteredUsers, loading,currentPage,usersPerPage,setCurrentPage}}>
-        <Dashboard setFilteredUsers={setFilteredUsers}/>
+      <UsersContext.Provider value = {{divRef, users,filteredUsers, showCountry, loading,currentPage,usersPerPage,setCurrentPage}}>
+        <Dashboard divRef={divRef} setFilteredUsers={setFilteredUsers}/>
         <div className="users-container">
         <h1 className="users-heading">All Users</h1>
         <p className="filter">Filter by</p>
             
         <SearchBar 
-              searchParam={searchParam} 
-              setSearchParam={setSearchParam} 
+              setShowCountry={setShowCountry}
               filteredUsers = {filteredUsers} 
               sieve = {sieve} 
               setSieve = {setSieve} 

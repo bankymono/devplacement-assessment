@@ -9,6 +9,9 @@
     display: flex;
     flex-direction: row;
 
+    animation-name: userdetailnudge;
+    animation-duration: .3s;
+    animation-fill-mode:forwards;
 }
 .user-detail-container .return-button {
     /* background-color: #FCFCFF; */

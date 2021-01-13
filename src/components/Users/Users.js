@@ -1,14 +1,18 @@
 
 import UsersItem from '../UsersItem/UsersItem'
 import './Users.css'
-import {useContext} from 'react'
+import {useContext,useRef} from 'react'
 import Pagination from '../Pagination/Pagination'
 import {UsersContext} from '../../App'
 
 
-const Users = () => {
-    const {users,filteredUsers, currentPage,usersPerPage,loading,setCurrentPage} = useContext(UsersContext)
+const Users = (props) => {
+    const {divRef} = useContext(UsersContext)
 
+    // divRef.current.classList.add('users-list-container-slidein')
+
+    const {users,filteredUsers, currentPage,usersPerPage,loading,setCurrentPage} = useContext(UsersContext)
+    // setDivRef(divRef.current)
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   
@@ -29,9 +33,9 @@ const Users = () => {
     return (
         
             <>
-            <div className="users-list-container">
-                {console.log(currentUsers)}
-                {currentUsers.map( user => <UsersItem key={user.email} user={user} />)}
+            <div className="user-list-container-slidein" ref={divRef} >
+                
+                {currentUsers.map( user => <UsersItem parentProp={props} divRef={divRef} key={user.email} user={user} />)}
             </div>
 
         

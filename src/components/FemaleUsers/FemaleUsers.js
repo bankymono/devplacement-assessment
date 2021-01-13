@@ -7,7 +7,8 @@ import Pagination from '../Pagination/Pagination'
 import {UsersContext} from '../../App'
 
 
-const FemaleUsers = () => {
+const FemaleUsers = (props) => {
+    const {divRef} = useContext(UsersContext)
   const {users, filteredUsers, currentPage,usersPerPage,loading,setCurrentPage} = useContext(UsersContext)
   const femaleUsers = users.filter(user => user.gender === "female")
   const indexOfLastUser = currentPage * usersPerPage;
@@ -32,8 +33,8 @@ const FemaleUsers = () => {
         
             <>
          
-            <div className="users-list-container">
-                {currentUsers.map( user => <UsersItem key={user.email} user={user} />)}
+            <div className="user-list-container-slidein" ref={divRef}>
+                {currentUsers.map( user => <UsersItem parentProp={props} divRef={divRef} key={user.email} user={user} />)}
             </div>
 
             {/* {props.children}        */}

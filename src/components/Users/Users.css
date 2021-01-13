@@ -18,3 +18,45 @@
     font-size: 15px;
     opacity: .7;
 }
+
+@keyframes slideout {
+    from{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    to{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+@keyframes userdetailnudge {
+    from{
+        transform: translateY(20px);
+    opacity: 0.5;   
+    }
+    to{
+        transform: translateY(0px);
+    opacity: 1;
+    }
+}
+
+@keyframes slidein {
+    from{transform: translateY(-100px);
+    opacity: 0;}
+    to{transform: translateY(0px); opacity: 1;}
+}
+
+.users-list-container{
+    /* animation-name: slideout; */
+    animation-duration: 1s;
+    animation-fill-mode:forwards;
+}
+
+.user-list-container-slidein{
+    /* background-color: red; */
+    animation-name: slidein;
+    animation-duration: 1s;
+    animation-fill-mode:backwards;
+    /* animation-play-state: paused; */
+}

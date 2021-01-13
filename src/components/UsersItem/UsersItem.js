@@ -1,11 +1,28 @@
-import React from 'react';
+import React,{useContext,useRef} from 'react';
 import {GrFormNextLink} from 'react-icons/gr'
 import {AiOutlineMail} from 'react-icons/ai'
 import {FiPhoneCall} from 'react-icons/fi'
 import {NavLink} from 'react-router-dom'
+import UserDetail from '../UserDetail/UserDetail'
 import './UsersItem.css'
+import {UsersContext} from '../../App';
 
-const UsersItem = ({user}) => {
+const UsersItem = (props) => {
+    const aRef = useRef(null)
+    const {user,divRef} = props;
+
+    const {showCountry} = useContext(UsersContext)
+
+    const handleClick = (e) =>{
+        e.preventDefault();
+        divRef.current.style.animationName="slideout"
+        // divRef.current.classList.remove('users-list-container-slidein')
+        divRef.current.classList.add('users-list-container')
+        // console.log('value',divRef.current.classList)
+        // console.log('second',e.target.parentElement.href)
+       setTimeout(()=>{props.parentProp.history.push(`/${user.email}`)},300) 
+        // divRef.current.style.animationPlayState = 'running';
+    }
 
     return (
         <div className="users-list-item">
@@ -15,13 +32,14 @@ const UsersItem = ({user}) => {
                 <div className="user-address">
                     {user.location.street.number} {user.location.street.name},{' '} 
                     {user.location.city},{' '} 
-                    {user.location.state},{' '} 
-                    {user.location.country}{' '}</div>
+                    {user.location.state}{' '} 
+                    {showCountry ?<div className='user-country'>{user.location.country}{' '}</div>:null}
+                </div>
                 <div className="user-contact-details">
                     <div className="user-email"><AiOutlineMail className="message-icon"/><p>{user.email}</p></div>
                     <div className="user-phone"><FiPhoneCall className="phone-icon" /><p>{user.cell}</p></div>
                     <div className="user-list-item-next">
-                        <NavLink to={'/' + user.email}><GrFormNextLink className="next-icon"/></NavLink>
+                        <NavLink ref={aRef} onClick={handleClick} to={'/' + user.email}><GrFormNextLink className="next-icon"/></NavLink>
                     </div>
                 </div>
             </div>

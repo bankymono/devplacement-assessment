@@ -42,7 +42,12 @@ const Pagination = ({currentUsers, currentPage,setCurrentPage,usersPerPage,total
         document.body.removeChild(a);
     }
 
-    const getReport = () =>{
+    const getReport = (e) =>{
+        if(currentUsers === null){
+            e.target.disabled = true
+        }else{
+
+        
         const data = currentUsers.map( user => ({
             name: `${user.name.first} ${user.name.last}`,
             address: `${user.location.street.number} ${user.location.street.name} ${user.location.city} ${user.location.state} ${user.location.country}`,
@@ -52,14 +57,15 @@ const Pagination = ({currentUsers, currentPage,setCurrentPage,usersPerPage,total
         const csvData = objectToCsv(data)
         downloadCsv(csvData)
     }
+    }
 
     return (
         <div>
             <div className="pagination-container">
-                <div onClick={getReport} className="download-link"><IoCloudDownloadSharp />Download Results</div>
+                <div onClick={getReport}  className="download-link"><IoCloudDownloadSharp />Download Results</div>
                 <div className="pagination-button-container">
-                    <button className="left" disabled={currentPage === 1? true: false} onClick={()=> setCurrentPage(currentPage - 1)}><BiChevronLeft size="1.2rem" color="#262A41"/></button>
-                    <button className="right" disabled={currentPage === Math.ceil(totalUsers / usersPerPage)? true: false}onClick={()=> setCurrentPage(currentPage + 1)}><BiChevronRight size="1.2rem" color="#E2E2EA" /></button>
+                    <button className="left" disabled={currentPage === 1 || currentPage === null? true: false} onClick={()=> setCurrentPage(currentPage - 1)}><BiChevronLeft size="1.2rem" color="#262A41"/></button>
+                    <button className="right" disabled={currentPage === Math.ceil(totalUsers / usersPerPage)||currentPage === null? true: false}onClick={()=> setCurrentPage(currentPage + 1)}><BiChevronRight size="1.2rem" color="#E2E2EA" /></button>
                 </div>
             </div>
         </div>

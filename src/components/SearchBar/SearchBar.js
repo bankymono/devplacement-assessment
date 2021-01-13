@@ -4,10 +4,10 @@ import {UsersContext} from '../../App';
 
 import './SearchBar.css'
 
-const SearchBar = ({sieve, setSieve, setFilteredUsers}) => {
+const SearchBar = ({sieve, setSieve, setShowCountry, setFilteredUsers}) => {
 
     const {users} = useContext(UsersContext)
-    // let sieves = 'country';
+
     const handleChange = (e)=>{
         
         let filtered = [];
@@ -46,10 +46,16 @@ const SearchBar = ({sieve, setSieve, setFilteredUsers}) => {
     }
 
     const handleSelect = (e)=>{
-        // sieves = e.target.value;
-        // console.log('ase',sieves)
+
         setSieve(e.target.value)
-        // console.log('ase',sieve)
+
+    }
+
+    const toggleCountryDisplay = (e) =>{
+            if(e.target.checked )
+            setShowCountry(e.target.checked)
+            else
+            setShowCountry(e.target.checked)
 
     }
 
@@ -63,11 +69,10 @@ const SearchBar = ({sieve, setSieve, setFilteredUsers}) => {
              <div className="search-bar-select-country">
                  <select defaultValue='country' onChange={handleSelect}  id="user-select">
                      <option value="country">Country</option>
-                     <option value="gender">Gender</option>
                      <option value="age">Age</option>
                  </select>
              </div>
-             <div className="search-bar-country-checkbox"><input type="checkbox" /><p>show country</p></div>
+             <div className="search-bar-country-checkbox"><input onChange={toggleCountryDisplay} type="checkbox" /><p>show country</p></div>
         </div>
     )
 }

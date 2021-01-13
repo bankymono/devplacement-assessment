@@ -8,7 +8,8 @@ import {UsersContext} from '../../App'
 import './Dashboard.css'
 
 
-const Dashboard = ({setFilteredUsers}) => {
+const Dashboard = (props) => {
+  const {setFilteredUsers,divRef} = props
   const {users} = useContext(UsersContext)
   
   const handleChange = (e) =>{
@@ -24,6 +25,8 @@ const Dashboard = ({setFilteredUsers}) => {
 
   setFilteredUsers(filtered);
   }
+
+
     return (
       <div className="dashboard-container">
             <div className="dashboard">
@@ -39,7 +42,7 @@ const Dashboard = ({setFilteredUsers}) => {
                   <NavLink to="/"><div className="control-icon" id="all-icon-container"><IoIosPeople color="white" /></div></NavLink><p>All users</p>
                 </div>
                 <div>
-                <NavLink to="/maleusers"><div className="control-icon" id="male-icon-container"><BiMale color="white"/></div></NavLink><p>Male users</p>
+                <NavLink  to="/maleusers"><div className="control-icon" id="male-icon-container"><BiMale color="white"/></div></NavLink><p>Male users</p>
                 </div>
                 <div>
                 <NavLink to="/femaleusers"><div className="control-icon" id="female-icon-container"><FaFemale color="white"/></div></NavLink><p>Female users</p>

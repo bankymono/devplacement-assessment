@@ -45,6 +45,7 @@ const Pagination = ({currentUsers, currentPage,setCurrentPage,usersPerPage,total
     const getReport = (e) =>{
         if(currentUsers === null){
             e.target.disabled = true
+
         }else{
 
         
@@ -62,10 +63,16 @@ const Pagination = ({currentUsers, currentPage,setCurrentPage,usersPerPage,total
     return (
         <div>
             <div className="pagination-container">
-                <div onClick={getReport}  className="download-link"><IoCloudDownloadSharp />Download Results</div>
+                <div onClick={getReport} style={currentUsers===null?{
+                    backgroundColor:'#c2a7bb'
+                }:null} className="download-link"><IoCloudDownloadSharp />Download Results</div>
                 <div className="pagination-button-container">
-                    <button className="left" disabled={currentPage === 1 || currentPage === null? true: false} onClick={()=> setCurrentPage(currentPage - 1)}><BiChevronLeft size="1.2rem" color="#262A41"/></button>
-                    <button className="right" disabled={currentPage === Math.ceil(totalUsers / usersPerPage)||currentPage === null? true: false}onClick={()=> setCurrentPage(currentPage + 1)}><BiChevronRight size="1.2rem" color="#E2E2EA" /></button>
+                    <button className="left" style={currentUsers===null?{
+                    backgroundColor:'#ededf0'
+                }:null} disabled={currentPage === 1 || currentPage === null? true: false} onClick={()=> setCurrentPage(currentPage - 1)}><BiChevronLeft size="1.2rem" color="#262A41"/></button>
+                    <button className="right" style={currentUsers===null?{
+                    backgroundColor:'#898b9c'
+                }:null} disabled={currentPage === Math.ceil(totalUsers / usersPerPage)||currentPage === null? true: false}onClick={()=> setCurrentPage(currentPage + 1)}><BiChevronRight size="1.2rem" color="#E2E2EA" /></button>
                 </div>
             </div>
         </div>

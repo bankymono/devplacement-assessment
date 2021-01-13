@@ -16,22 +16,11 @@ const User = (props) => {
 
     const { match:{ params: {userid}}} = props
 
-    const handleReturn = (e) =>{
-        console.log('valuesss',divRef)
-        // e.preventDefault();
-        // divRef.current.classList.remove('users-list-container')
-        // divRef.current.classList.add('users-list-container-slidein')
-    //     // console.log('value',aRef.current)
-    //     // console.log('second',props.parentProp)
-    //    setTimeout(()=>{props.parentProp.history.push(`/`)},100) 
-    //     // divRef.current.style.animationPlayState = 'running';
-    }
-
 
 
     return (
         <div className="user-detail-container">
-            <div className="return-button"><NavLink onClick={handleReturn} className="anchor" to="/"><GrFormPreviousLink color='red' /> Results</NavLink></div>
+            <div className="return-button"><NavLink className="anchor" to="/"><GrFormPreviousLink color='red' /> Results</NavLink></div>
             {users.map(user => user.email === userid?<div key={user.email}>
                 <div className="users-detail-item">
                     <img className="users-detail-image"src={user.picture.large} alt="profile"/>

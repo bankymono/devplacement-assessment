@@ -12,6 +12,10 @@ import FemaleUsers from './components/FemaleUsers/FemaleUsers';
 export const UsersContext = createContext()
 
 function App() {
+
+  const [pinkButton, setPinkButton] = useState('');
+  const [blueButton, setBlueButton] = useState('');
+  const [purpleButton, setPurpleButton] = useState('');
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [sieve, setSieve] = useState('country');
@@ -40,7 +44,15 @@ function App() {
   return (
     <div className="App">
       <UsersContext.Provider value = {{divRef, users,filteredUsers, showCountry, loading,currentPage,usersPerPage,setCurrentPage}}>
-        <Dashboard divRef={divRef} setFilteredUsers={setFilteredUsers}/>
+        <Dashboard 
+        pinkButton={pinkButton}
+        blueButton={blueButton}
+        purpleButton={purpleButton}
+        setPinkButton={setPinkButton} 
+        setBlueButton={setBlueButton} 
+        setPurpleButton={setPurpleButton} 
+        divRef={divRef} 
+        setFilteredUsers={setFilteredUsers}/>
         <div className="users-container">
         <h1 className="users-heading">All Users</h1>
         <p className="filter">Filter by</p>

@@ -1,3 +1,8 @@
 language: node_js
 node_js:
 - 12.15.0
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  api_key:
+    secure: API_KEY

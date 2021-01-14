@@ -58,11 +58,27 @@ margin-right: 40px;
   }
 }
 
+@keyframes scaledown {
+  from{
+    transform: scale(1.2);
+  }
+  to{
+      transform: scale(1);
+  }
+}
+
 .anime-class{
   animation-name: enlarge;
   animation-duration: .5s;
   animation-fill-mode:forwards;
+  transition: transform .3s ease-in;
+}
 
+.scaledown-class{
+  animation-name: scaledown;
+  animation-duration: .5s;
+  animation-fill-mode:forwards;
+  transition: transform .3s ease-in;
 }
 .users-control-container p{
   opacity: 0.7;

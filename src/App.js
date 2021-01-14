@@ -1,5 +1,6 @@
-import axios from 'axios';
-import {useState, useEffect, createContext, useRef} from 'react'
+import ajaxfetch from './services/ajaxfetch'
+import {useState, useEffect, createContext} from 'react'
+import { BrowserRouter as Router} from 'react-router-dom'
 import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import Users from './components/Users/Users';
@@ -9,33 +10,43 @@ import SearchBar from './components/SearchBar/SearchBar';
 import MaleUsers from './components/MaleUsers/MaleUsers';
 import FemaleUsers from './components/FemaleUsers/FemaleUsers';
 
+
 export const UsersContext = createContext()
 
 function App() {
+  
+  const [goForward,setGoForward] = useState(''); // state to control animation going from list of users to single user
+  const [goBack,setGoBack] = useState(''); // state to control animation going from user detail to list of users
 
-  const [pinkButton, setPinkButton] = useState('');
+  // states to control button size animation
+  const [pinkButton, setPinkButton] = useState(''); 
   const [blueButton, setBlueButton] = useState('');
   const [purpleButton, setPurpleButton] = useState('');
+
+  // state to manage users info
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [sieve, setSieve] = useState('country');
   const [showCountry, setShowCountry] = useState(false);
+
+
   const [loading,setLoading] = useState(false);
+  
+  // state for page management and pagination
   const [currentPage,setCurrentPage] = useState(1);
   const [usersPerPage] = useState(3);
 
-  const divRef = useRef(null)
 
 
+  // Fetch user as components render
   useEffect(()=>{
     const fetchUsers = async () => {
       setLoading(true);
-      // const res = await axios.get('https://jsonplaceholder.typicode.com/users');
-      const res = await axios.get('https://randomuser.me/api/?results=40&noinfo');
-      setUsers(res.data.results);
       
-      setLoading(false);
-       
+      const res = await ajaxfetch()
+      setUsers(res);
+
+      setLoading(false);       
     }
 
     fetchUsers();
@@ -43,34 +54,46 @@ function App() {
   
   return (
     <div className="App">
-      <UsersContext.Provider value = {{divRef, users,filteredUsers, showCountry, loading,currentPage,usersPerPage,setCurrentPage}}>
-        <Dashboard 
-        pinkButton={pinkButton}
-        blueButton={blueButton}
-        purpleButton={purpleButton}
-        setPinkButton={setPinkButton} 
-        setBlueButton={setBlueButton} 
-        setPurpleButton={setPurpleButton} 
-        divRef={divRef} 
-        setFilteredUsers={setFilteredUsers}/>
-        <div className="users-container">
-        <h1 className="users-heading">All Users</h1>
-        <p className="filter">Filter by</p>
+      <Router>
+      <UsersContext.Provider 
+        value={ {goForward, 
+                  setGoForward, 
+                  goBack, 
+                  setGoBack, 
+                  users:users,
+                  filteredUsers, 
+                  showCountry, 
+                  loading,
+                  currentPage,
+                  usersPerPage,
+                  setCurrentPage}}>
+          <Dashboard 
+                pinkButton={pinkButton}
+                blueButton={blueButton}
+                purpleButton={purpleButton}
+                setPinkButton={setPinkButton} 
+                setBlueButton={setBlueButton} 
+                setPurpleButton={setPurpleButton} 
+                setFilteredUsers={setFilteredUsers} />
+                      <div className="users-container">
+                            <h1 className="users-heading">All Users</h1>
+                            <p className="filter">Filter by</p>
             
-        <SearchBar 
-              setShowCountry={setShowCountry}
-              filteredUsers = {filteredUsers} 
-              sieve = {sieve} 
-              setSieve = {setSieve} 
-              setFilteredUsers={setFilteredUsers} />
-        <Switch>
-          <Route exact path="/" component={Users} />
-          <Route exact path="/maleusers" component={MaleUsers} />
-          <Route exact path="/femaleusers" component={FemaleUsers} />
-          <Route exact path="/:userid" component={UserList} />
-        </Switch>
-        </div>
-        </UsersContext.Provider>
+                        <SearchBar 
+                            setShowCountry={setShowCountry}
+                            filteredUsers = {filteredUsers} 
+                            sieve = {sieve} 
+                            setSieve = {setSieve} 
+                            setFilteredUsers={setFilteredUsers} />
+                        <Switch>
+                            <Route exact path="/" component={Users} />
+                            <Route exact path="/maleusers" component={MaleUsers} />
+                            <Route exact path="/femaleusers" component={FemaleUsers} />
+                            <Route exact path="/:userid" component={UserList} />
+                        </Switch>
+                      </div>
+      </UsersContext.Provider>
+      </Router>
     </div>
   );
 }

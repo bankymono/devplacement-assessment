@@ -1,4 +1,4 @@
-import React,{useContext,useRef} from 'react';
+import React,{useContext} from 'react';
 import { NavLink } from 'react-router-dom';
 import {UsersContext} from '../../App';
 import {GrFormPreviousLink} from 'react-icons/gr';
@@ -11,16 +11,24 @@ import Pagination from '../Pagination/Pagination';
 
 
 const User = (props) => {
-    const {users,divRef}= useContext(UsersContext)            
-    
+    const {users,setGoBack,setGoForward}= useContext(UsersContext)                
 
     const { match:{ params: {userid}}} = props
+    
+    const handleClick = (e) =>{
+        e.preventDefault();
 
+        setGoBack('user-list-container-slidein')
+        setGoForward('')
+        
+        props.history.push(`/`) 
+        
+    }
 
 
     return (
         <div className="user-detail-container">
-            <div className="return-button"><NavLink className="anchor" to="/"><GrFormPreviousLink color='red' /> Results</NavLink></div>
+            <div className="return-button"><NavLink onClick={handleClick} className="anchor" to="/"><GrFormPreviousLink color='red' /> Results</NavLink></div>
             {users.map(user => user.email === userid?<div key={user.email}>
                 <div className="users-detail-item">
                     <img className="users-detail-image"src={user.picture.large} alt="profile"/>

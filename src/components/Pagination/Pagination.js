@@ -1,7 +1,6 @@
 import {IoCloudDownloadSharp}  from 'react-icons/io5'
 import React from 'react'
 import './Pagination.css'
-
 import {BiChevronRight, BiChevronLeft} from 'react-icons/bi'
 
 const Pagination = ({currentUsers, currentPage,setCurrentPage,usersPerPage,totalUsers}) => {
@@ -11,6 +10,7 @@ const Pagination = ({currentUsers, currentPage,setCurrentPage,usersPerPage,total
         pageNumbers.push(i);
     }
 
+    // converts an array object to csv
     const objectToCsv = (users) =>{
         const csvRows = [];
 
@@ -30,6 +30,7 @@ const Pagination = ({currentUsers, currentPage,setCurrentPage,usersPerPage,total
         return csvRows.join('\n')
     }
 
+    // downloads csv
     const downloadCsv = (data) =>{
         console.log(data)
         const a = document.createElement('a')
@@ -42,6 +43,7 @@ const Pagination = ({currentUsers, currentPage,setCurrentPage,usersPerPage,total
         document.body.removeChild(a);
     }
 
+    // gets the user the report at the click of a button
     const getReport = (e) =>{
         if(currentUsers === null){
             e.target.disabled = true
@@ -58,21 +60,26 @@ const Pagination = ({currentUsers, currentPage,setCurrentPage,usersPerPage,total
         const csvData = objectToCsv(data)
         downloadCsv(csvData)
     }
-    }
+}
 
     return (
         <div>
             <div className="pagination-container">
-                <div onClick={getReport} style={currentUsers===null?{
-                    backgroundColor:'#c2a7bb'
-                }:null} className="download-link"><IoCloudDownloadSharp />Download Results</div>
+                <div    onClick={getReport} style={currentUsers===null?{
+                                backgroundColor:'#c2a7bb'
+                            }:null} 
+                        className="download-link"><IoCloudDownloadSharp />Download Results</div>
+                
+                {/* contains navigation button for paignation */}
                 <div className="pagination-button-container">
                     <button className="left" style={currentUsers===null?{
-                    backgroundColor:'#ededf0'
-                }:null} disabled={currentPage === 1 || currentPage === null? true: false} onClick={()=> setCurrentPage(currentPage - 1)}><BiChevronLeft size="1.2rem" color="#262A41"/></button>
+                                    backgroundColor:'#ededf0'
+                                }:null} 
+                            disabled={currentPage === 1 || currentPage === null? true: false} onClick={()=> setCurrentPage(currentPage - 1)}><BiChevronLeft size="1.2rem" color="#262A41"/></button>
                     <button className="right" style={currentUsers===null?{
-                    backgroundColor:'#898b9c'
-                }:null} disabled={currentPage === Math.ceil(totalUsers / usersPerPage)||currentPage === null? true: false}onClick={()=> setCurrentPage(currentPage + 1)}><BiChevronRight size="1.2rem" color="#E2E2EA" /></button>
+                                    backgroundColor:'#898b9c'
+                                }:null} 
+                            disabled={currentPage === Math.ceil(totalUsers / usersPerPage)||currentPage === null? true: false}onClick={()=> setCurrentPage(currentPage + 1)}><BiChevronRight size="1.2rem" color="#E2E2EA" /></button>
                 </div>
             </div>
         </div>

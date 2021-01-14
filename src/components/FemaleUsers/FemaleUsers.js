@@ -1,6 +1,5 @@
-
 import UsersItem from '../UsersItem/UsersItem'
-// import SearchBar from '../SearchBar/SearchBar'
+
 import './FemaleUsers.css'
 import {useContext} from 'react'
 import Pagination from '../Pagination/Pagination'
@@ -8,11 +7,13 @@ import {UsersContext} from '../../App'
 
 
 const FemaleUsers = (props) => {
-    const {divRef} = useContext(UsersContext)
-  const {users, filteredUsers, currentPage,usersPerPage,loading,setCurrentPage} = useContext(UsersContext)
-  const femaleUsers = users.filter(user => user.gender === "female")
-  const indexOfLastUser = currentPage * usersPerPage;
-  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+    // fetching states with context 
+    const {divRef, goForward, goBack} = useContext(UsersContext)
+    const {users, filteredUsers, currentPage,usersPerPage,loading,setCurrentPage} = useContext(UsersContext);
+
+    const femaleUsers = users.filter(user => user.gender === "female")
+    const indexOfLastUser = currentPage * usersPerPage;
+    const indexOfFirstUser = indexOfLastUser - usersPerPage;
 
     let currentUsers = []
 
@@ -30,17 +31,13 @@ const FemaleUsers = (props) => {
     }
 
     return (
-        
             <>
-         
-            <div className="user-list-container-slidein" ref={divRef}>
+            <div className={`${goBack} ${goForward}`} ref={divRef}>
                 {currentUsers.map( user => <UsersItem parentProp={props} divRef={divRef} key={user.email} user={user} />)}
             </div>
 
-            {/* {props.children}        */}
-            <Pagination currentUsers ={currentUsers} currentPage={currentPage} setCurrentPage={setCurrentPage} usersPerPage ={usersPerPage} totalUsers={users.length} />
-        
-        </>
+            <Pagination currentUsers ={currentUsers} currentPage={currentPage} setCurrentPage={setCurrentPage} usersPerPage ={usersPerPage} totalUsers={users.length} />        
+            </>
     )
 }
 

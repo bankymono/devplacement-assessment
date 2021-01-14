@@ -6,13 +6,15 @@ import './SearchBar.css'
 
 const SearchBar = ({sieve, setSieve, setShowCountry, setFilteredUsers}) => {
 
+
     const {users} = useContext(UsersContext)
 
     const handleChange = (e)=>{
         
         let filtered = [];
+    
         if( sieve === 'country'){
-             filtered = (e.target.value === '' ?['null'] : users.filter(user => {
+                filtered = (e.target.value === '' ?['null'] : users.filter(user => {
                   
                 return user.location.country.toLowerCase().includes(e.target.value.toLowerCase())
             })) 
@@ -20,8 +22,7 @@ const SearchBar = ({sieve, setSieve, setShowCountry, setFilteredUsers}) => {
             if(filtered.length === 0) filtered = ['null']
             if(e.target.value === '') filtered = []
         }
-        else
-        if( sieve === 'age'){
+        else if( sieve === 'age'){
             filtered = (e.target.value === '' ?['null'] : users.filter(user => {
                 console.log('hey')
                   const tosearch = "" + user.dob.age;
@@ -42,7 +43,6 @@ const SearchBar = ({sieve, setSieve, setShowCountry, setFilteredUsers}) => {
         }
 
         setFilteredUsers(filtered);
-    // }
     }
 
     const handleSelect = (e)=>{
@@ -72,6 +72,7 @@ const SearchBar = ({sieve, setSieve, setShowCountry, setFilteredUsers}) => {
                      <option value="age">Age</option>
                  </select>
              </div>
+             
              <div className="search-bar-country-checkbox"><input onChange={toggleCountryDisplay} type="checkbox" /><p>show country</p></div>
         </div>
     )

@@ -48,7 +48,7 @@
 }
 
 .users-list-container{
-    /* animation-name: slideout; */
+    animation-name: slideout;
     animation-duration: 1s;
     animation-fill-mode:forwards;
 }

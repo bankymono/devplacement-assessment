@@ -3,25 +3,26 @@ import {GrFormNextLink} from 'react-icons/gr'
 import {AiOutlineMail} from 'react-icons/ai'
 import {FiPhoneCall} from 'react-icons/fi'
 import {NavLink} from 'react-router-dom'
-import UserDetail from '../UserDetail/UserDetail'
+
 import './UsersItem.css'
 import {UsersContext} from '../../App';
 
 const UsersItem = (props) => {
     const aRef = useRef(null)
-    const {user,divRef} = props;
+    const {user} = props;
 
-    const {showCountry} = useContext(UsersContext)
+    const {setGoForward,setGoBack, showCountry} = useContext(UsersContext)
 
     const handleClick = (e) =>{
         e.preventDefault();
-        divRef.current.style.animationName="slideout"
+
+        setGoForward('users-list-container')
+        setGoBack('')
         // divRef.current.classList.remove('users-list-container-slidein')
-        divRef.current.classList.add('users-list-container')
-        // console.log('value',divRef.current.classList)
-        // console.log('second',e.target.parentElement.href)
+        // divRef.current.classList.add('users-list-container')
+        
        setTimeout(()=>{props.parentProp.history.push(`/${user.email}`)},300) 
-        // divRef.current.style.animationPlayState = 'running';
+        
     }
 
     return (

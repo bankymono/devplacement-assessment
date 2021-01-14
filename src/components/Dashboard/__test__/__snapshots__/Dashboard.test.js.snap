@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="dashboard-container"
+  data-testid="dashboard"
+>
+  <div
+    className="dashboard"
+  >
+    <h1>
+      Hello, 
+      <b>
+        Emerald
+      </b>
+    </h1>
+    <p
+      className="welcome-message"
+    >
+      Welcome to your dashboard, kindly sort through the user base
+    </p>
+    <div
+      className="dashboard-search-bar"
+    >
+      <FiSearch
+        className="search-icon"
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Find a user"
+      />
+    </div>
+    <p
+      className="users-control-header"
+    >
+      Show Users
+    </p>
+    <div
+      className="users-control-container"
+    >
+      <div
+        className=""
+        onClick={[Function]}
+      >
+        <NavLink
+          to="/"
+        >
+          <div
+            className="control-icon"
+            id="all-icon-container"
+          >
+            <IoIosPeople
+              color="white"
+            />
+          </div>
+        </NavLink>
+        <p>
+          All users
+        </p>
+      </div>
+      <div
+        className=""
+        onClick={[Function]}
+      >
+        <NavLink
+          to="/maleusers"
+        >
+          <div
+            className="control-icon"
+            id="male-icon-container"
+          >
+            <BiMale
+              color="white"
+            />
+          </div>
+        </NavLink>
+        <p>
+          Male users
+        </p>
+      </div>
+      <div
+        className=""
+        onClick={[Function]}
+      >
+        <NavLink
+          to="/femaleusers"
+        >
+          <div
+            className="control-icon"
+            id="female-icon-container"
+          >
+            <FaFemale
+              color="white"
+            />
+          </div>
+        </NavLink>
+        <p>
+          Female users
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders correctly 2`] = `
+<div
+  class="dashboard-container"
+  data-testid="dashboard"
+>
+  <div
+    class="dashboard"
+  >
+    <h1>
+      Hello, 
+      <b>
+        Emerald
+      </b>
+    </h1>
+    <p
+      class="welcome-message"
+    >
+      Welcome to your dashboard, kindly sort through the user base
+    </p>
+    <div
+      class="dashboard-search-bar"
+    >
+      <svg
+        class="search-icon"
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="11"
+          cy="11"
+          r="8"
+        />
+        <line
+          x1="21"
+          x2="16.65"
+          y1="21"
+          y2="16.65"
+        />
+      </svg>
+      <input
+        placeholder="Find a user"
+      />
+    </div>
+    <p
+      class="users-control-header"
+    >
+      Show Users
+    </p>
+    <div
+      class="users-control-container"
+    >
+      <div
+        class=""
+      >
+        <a
+          aria-current="page"
+          class="active"
+          href="/"
+        >
+          <div
+            class="control-icon"
+            id="all-icon-container"
+          >
+            <svg
+              color="white"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              style="color:white"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M349.1 334.7c-11.2-4-29.5-4.2-37.6-7.3-5.6-2.2-14.5-4.6-17.4-8.1-2.9-3.5-2.9-28.5-2.9-28.5s7-6.6 9.9-14c2.9-7.3 4.8-27.5 4.8-27.5s6.6 2.8 9.2-10.4c2.2-11.4 6.4-17.4 5.3-25.8-1.2-8.4-5.8-6.4-5.8-6.4s5.8-8.5 5.8-37.4c0-29.8-22.5-59.1-64.6-59.1-42 0-64.7 29.4-64.7 59.1 0 28.9 5.7 37.4 5.7 37.4s-4.7-2-5.8 6.4c-1.2 8.4 3 14.4 5.3 25.8 2.6 13.3 9.2 10.4 9.2 10.4s1.9 20.1 4.8 27.5c2.9 7.4 9.9 14 9.9 14s0 25-2.9 28.5-11.8 5.9-17.4 8c-8 3.1-26.3 3.5-37.6 7.5-11.2 4-45.8 22.2-45.8 67.2h278.3c.1-45.1-34.5-63.3-45.7-67.3z"
+              />
+              <path
+                d="M140 286s23.9-.8 33.4-9.3c-15.5-23.5-7.1-50.9-10.3-76.5-3.2-25.5-17.7-40.8-46.7-40.8h-.4c-28 0-43.1 15.2-46.3 40.8-3.2 25.5 5.7 56-10.2 76.5C69 285.3 93 285 93 285s1 14.4-1 16.8c-2 2.4-7.9 4.7-12 5.5-8.8 1.9-18.1 4.5-25.9 7.2-7.8 2.7-22.6 17.2-22.6 37.2h80.3c2.2-8 17.3-22.3 32-29.8 9-4.6 17.9-4.3 24.7-5.2 0 0 3.8-6-8.7-8.3 0 0-17.2-4.3-19.2-6.7-1.9-2.2-.6-15.7-.6-15.7zM372 286s-23.9-.8-33.4-9.3c15.5-23.5 7.1-50.9 10.3-76.5 3.2-25.5 17.7-40.8 46.7-40.8h.4c28 0 43.1 15.2 46.3 40.8 3.2 25.5-5.7 56 10.2 76.5-9.5 8.6-33.5 8.3-33.5 8.3s-1 14.4 1 16.8c2 2.4 7.9 4.7 12 5.5 8.8 1.9 18.1 4.5 25.9 7.2 7.8 2.7 22.6 17.2 22.6 37.2h-80.3c-2.2-8-17.3-22.3-32-29.8-9-4.6-17.9-4.3-24.7-5.2 0 0-3.8-6 8.7-8.3 0 0 17.2-4.3 19.2-6.7 1.9-2.2.6-15.7.6-15.7z"
+              />
+            </svg>
+          </div>
+        </a>
+        <p>
+          All users
+        </p>
+      </div>
+      <div
+        class=""
+      >
+        <a
+          href="/maleusers"
+        >
+          <div
+            class="control-icon"
+            id="male-icon-container"
+          >
+            <svg
+              color="white"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              style="color:white"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="4"
+                r="2"
+              />
+              <path
+                d="M15,7H9C8.447,7,8,7.447,8,8v7h2v7h2h2v-7h2V8C16,7.447,15.553,7,15,7z"
+              />
+            </svg>
+          </div>
+        </a>
+        <p>
+          Male users
+        </p>
+      </div>
+      <div
+        class=""
+      >
+        <a
+          href="/femaleusers"
+        >
+          <div
+            class="control-icon"
+            id="female-icon-container"
+          >
+            <svg
+              color="white"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              style="color:white"
+              viewBox="0 0 256 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M128 0c35.346 0 64 28.654 64 64s-28.654 64-64 64c-35.346 0-64-28.654-64-64S92.654 0 128 0m119.283 354.179l-48-192A24 24 0 0 0 176 144h-11.36c-22.711 10.443-49.59 10.894-73.28 0H80a24 24 0 0 0-23.283 18.179l-48 192C4.935 369.305 16.383 384 32 384h56v104c0 13.255 10.745 24 24 24h32c13.255 0 24-10.745 24-24V384h56c15.591 0 27.071-14.671 23.283-29.821z"
+              />
+            </svg>
+          </div>
+        </a>
+        <p>
+          Female users
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

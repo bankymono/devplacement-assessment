@@ -1,10 +1,10 @@
 language: node_js
 node_js:
-  - 12.15.0
+- 12.15.0
 deploy:
   skip_cleanup: true
   provider: heroku
   api_key:
-    secure: API_KEY
+    secure: FSwoIWGydPyc4iEnaOG1zx4ipJygaS74zwUiwHArZOOWBJWvX2Ed+x99cgBdPsPZUnlFQd3LM5kYH8OHOqq6xNmmR9BE+3oZG0D/cDMuXlcAXXUw1ssOw4yRynPGAPcjT1tVLwNoRipOGgvOeULKMxzAKTAM3JvO+WWNvuImX54drvS2epEM33f2rygeC3DTPQPDmmEpJpj6ecBC0ezQg6kAClg4hgFYygwuIgGSvpWFlT/fF+KrxFkAD9LqITaoKN/T/H+EH5sqYJ4xPvkU2fThYYkrm8E9//X0qZPJYlIeunwHbJhI2rvH7aECoPaUJFprrhAtd2bU4ScYZ+VrULkPD2atQTaCUfww4zi8DhzhwXF5zVVeB82A9WqcXAMMos1yVT28OrRYVtMQufGL+o9nhMjVGbjsqdXJCJWhwSQSzKLJ1wffFs39NnyGdVpvSnbUPhiJrwu+LJVJ8/IJmxnAtflOIR6dx0qvYcVrhHuykVd7i4ea1+6NYXW4fFsSqHqj9DvoGSUAS/bUt0RilooS5q/aNfxEmM35VjRLwWKb2ZWCx6wEPj0xEzaH2HmJwPXbXFGsf+RfwLR3uE45vYDfQlww7HcZ24LLbgsW4nt/g5fIfLqliexJn758QXgEFqmM1xQ7XHSq+sZ4SXQZYggTPBf4XyQahCtQr/9hzVw=
   on:
     all_branches: true

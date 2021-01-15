@@ -76,7 +76,9 @@ function App() {
                 setPurpleButton={setPurpleButton} 
                 setFilteredUsers={setFilteredUsers} />
                       <div className="users-container">
-                            <h1 className="users-heading">All Users</h1>
+                            {pinkButton === 'anime-class' ||pinkButton === ''?<h1 className="users-heading">All Users</h1>:null}
+                            {blueButton === 'anime-class'?<h1 className="users-heading">Male Users</h1>:null}
+                            {purpleButton === 'anime-class'?<h1 className="users-heading">Female Users</h1>:null}
                             <p className="filter">Filter by</p>
             
                         <SearchBar 
